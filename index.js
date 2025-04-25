@@ -28,6 +28,19 @@ const form = document.forms['contact-form']
 
 form.addEventListener('submit', e => {
   e.preventDefault()
+
+
+
+   // Gera a data/hora atual e atribui ao campo oculto
+   const agora = new Date();
+   const dataHoraFormatada = agora.toLocaleString('pt-BR', {
+     dateStyle: 'short',
+     timeStyle: 'short'
+   });
+   document.getElementById('DataHora').value = dataHoraFormatada;
+
+
+
   fetch(scriptURL, { method: 'POST', body: new FormData(form)})
 
   .then(response => alert("Sua solicitação foi enviada com sucesso, click em ok para acessar o conteúdo." ))
